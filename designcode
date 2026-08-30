@@ -1,0 +1,15 @@
+module encoder_8_3( input [7:0]req , output reg valid, reg [2:0]index );
+always @(*) begin 
+case (req)
+8'b00000000: valid = 1'b0;
+8'b00000001: begin index = 3'b000; valid = 1'b1; end
+8'b0000001x: begin index = 3'b001;valid = 1'b1; end
+8'b000001xx: begin index = 3'b010;valid = 1'b1; end
+8'b00001xxx: begin index = 3'b011;valid = 1'b1; end
+8'b0001xxxx: begin index = 3'b100;valid = 1'b1; end
+8'b001xxxxx: begin index = 3'b101;valid = 1'b1; end
+8'b01xxxxxx: begin index = 3'b110;valid = 1'b1; end
+8'b1xxxxxxx: begin index = 3'b111;valid = 1'b1; end
+endcase
+end
+endmodule
